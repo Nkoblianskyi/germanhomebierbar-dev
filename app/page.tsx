@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -8,8 +8,27 @@ import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { SiteFooter } from '@/components/site-footer'
 
-export default function Home() {
+function SearchParamsHandler({ ageVerified, mounted }: { ageVerified: boolean; mounted: boolean }) {
   const searchParams = useSearchParams()
+
+  useEffect(() => {
+    if (ageVerified && mounted) {
+      const scrollTo = searchParams.get('scrollTo')
+      if (scrollTo) {
+        setTimeout(() => {
+          const element = document.getElementById(scrollTo)
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }
+        }, 100)
+      }
+    }
+  }, [ageVerified, mounted, searchParams])
+
+  return null
+}
+
+export default function Home() {
   const [ageVerified, setAgeVerified] = useState(false)
   const [mounted, setMounted] = useState(false)
   const [formData, setFormData] = useState({
@@ -27,20 +46,6 @@ export default function Home() {
       setAgeVerified(true)
     }
   }, [])
-
-  useEffect(() => {
-    if (ageVerified && mounted) {
-      const scrollTo = searchParams.get('scrollTo')
-      if (scrollTo) {
-        setTimeout(() => {
-          const element = document.getElementById(scrollTo)
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-          }
-        }, 100)
-      }
-    }
-  }, [ageVerified, mounted, searchParams])
 
   const handleAgeVerification = () => {
     setAgeVerified(true)
@@ -183,6 +188,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#f8f4ed]">
+      <Suspense fallback={null}>
+        <SearchParamsHandler ageVerified={ageVerified} mounted={mounted} />
+      </Suspense>
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-[#1a1410]/95 backdrop-blur-sm border-b border-[#3d2f1f]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
