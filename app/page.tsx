@@ -556,37 +556,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Success Modal */}
-      {/* {showSuccessModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <div 
+      {showSuccessModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="contact-success-title"
+        >
+          <div
             className="absolute inset-0 bg-[#1a1410]/90 backdrop-blur-sm"
             onClick={() => setShowSuccessModal(false)}
+            aria-hidden
           />
           <div className="relative bg-[#2a2018] border border-[#3d2f1f] p-12 max-w-md w-full text-center">
             <div className="mb-8">
               <div className="w-20 h-20 mx-auto border-2 border-[#c9a65c] flex items-center justify-center">
-                <svg 
-                  width="40" 
-                  height="40" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="#c9a65c" 
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#c9a65c"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  aria-hidden
                 >
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
               </div>
             </div>
-            <h3 className="text-2xl font-serif text-[#f5efe6] mb-4">
+            <h3
+              id="contact-success-title"
+              className="text-2xl font-serif text-[#f5efe6] mb-4"
+            >
               Nachricht gesendet
             </h3>
             <p className="text-[#a89880] leading-relaxed mb-8">
-              Vielen Dank fur Ihre Nachricht. Wir werden uns so schnell wie moglich bei Ihnen melden.
+              Vielen Dank! Ihre Nachricht wurde erfolgreich übermittelt. Wir melden uns
+              in Kürze bei Ihnen.
             </p>
             <button
+              type="button"
               onClick={() => setShowSuccessModal(false)}
               className="bg-[#8b5a2b] hover:bg-[#a0693c] text-[#f5efe6] px-8 py-4 text-sm tracking-wider transition-colors"
             >
@@ -594,7 +605,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-      )} */}
+      )}
 
     </div>
   )
