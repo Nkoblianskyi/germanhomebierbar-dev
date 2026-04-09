@@ -3,8 +3,6 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { SiteHeader } from '@/components/site-header'
-import { SiteFooter } from '@/components/site-footer'
 
 export default function TopicsPage() {
   const [activeSection, setActiveSection] = useState('beleuchtung')
@@ -29,8 +27,6 @@ export default function TopicsPage() {
 
   return (
     <div className="min-h-screen bg-[#f8f4ed]">
-      <SiteHeader />
-
       {/* Hero */}
       <section className="pt-32 pb-20 bg-[#1a1410] relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -470,7 +466,6 @@ export default function TopicsPage() {
         </div>
       </div>
 
-      <SiteFooter />
     </div>
   )
 }

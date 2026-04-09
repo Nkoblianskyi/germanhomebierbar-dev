@@ -5,7 +5,6 @@ import { useSearchParams } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Checkbox } from '@/components/ui/checkbox'
-import { SiteFooter } from '@/components/site-footer'
 
 function SearchParamsHandler() {
   const searchParams = useSearchParams()
@@ -129,37 +128,6 @@ export default function Home() {
       <Suspense fallback={null}>
         <SearchParamsHandler />
       </Suspense>
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-[#1a1410]/95 backdrop-blur-sm border-b border-[#3d2f1f]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            <Link href="/" className="text-[#c9a65c] font-serif text-xl tracking-wider">
-              German Home Bier Bar
-            </Link>
-            <div className="hidden md:flex items-center gap-8">
-              <Link href="#barstile" className="text-sm text-[#e8dcc8] hover:text-[#c9a65c] transition-colors tracking-wide">
-                Barstile
-              </Link>
-              <Link href="#standorte" className="text-sm text-[#e8dcc8] hover:text-[#c9a65c] transition-colors tracking-wide">
-                Standorte
-              </Link>
-              <Link href="#spirituosen" className="text-sm text-[#e8dcc8] hover:text-[#c9a65c] transition-colors tracking-wide">
-                Spirituosen
-              </Link>
-              <Link href="#ueber-uns" className="text-sm text-[#e8dcc8] hover:text-[#c9a65c] transition-colors tracking-wide">
-                Uber uns
-              </Link>
-              <Link href="/topics" className="text-sm text-[#e8dcc8] hover:text-[#c9a65c] transition-colors tracking-wide">
-                Ratgeber
-              </Link>
-              <Link href="#kontakt" className="text-sm bg-[#8b5a2b] hover:bg-[#a0693c] text-[#f5efe6] px-5 py-2 transition-colors tracking-wide">
-                Kontakt
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-20">
         <div className="absolute inset-0">
@@ -628,7 +596,6 @@ export default function Home() {
         </div>
       )} */}
 
-<SiteFooter />
     </div>
   )
 }

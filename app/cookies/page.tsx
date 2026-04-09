@@ -1,10 +1,6 @@
-import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
-
 export default function CookiesPage() {
   return (
     <div className="min-h-screen bg-[#1a1410] text-[#e8e0d4]">
-      <SiteHeader />
 
       <main className="pt-32 pb-24 px-6">
         <div className="max-w-4xl mx-auto">
@@ -163,7 +159,6 @@ export default function CookiesPage() {
         </div>
       </main>
 
-      <SiteFooter />
     </div>
   )
 }
