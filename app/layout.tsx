@@ -1,14 +1,13 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'German Home Bier Bar | Немецкие домашние пивные бары',
-  description: 'Информационный обзорный сайт о домашних пивных барах в немецком стиле. Rustikal, Modern, Vintage, Industrial. Размещение в Keller, Garten, Terrasse.',
+  title: 'German Home Bier Bar | Deutsche Hausbars',
+  description: 'Informationsportal uber deutsche Hausbars. Barstile: Rustikal, Modern, Vintage, Industrial. Standorte: Keller, Garten, Terrasse, Garage, Balkon, Wohnzimmer. Tipps zu Beleuchtung, Mobel und Dekoration.',
   generator: 'germanhomebierbar.com',
   icons: {
     icon: [
@@ -35,10 +34,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="de">
       <body className="font-sans antialiased">
         {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+
       </body>
     </html>
   )

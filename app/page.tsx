@@ -636,7 +636,7 @@ export default function Home() {
       </section>
 
       {/* Success Modal */}
-      {showSuccessModal && (
+      {/* {showSuccessModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div 
             className="absolute inset-0 bg-[#1a1410]/90 backdrop-blur-sm"
@@ -673,7 +673,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-      )}
+      )} */}
 
 <SiteFooter />
     </div>
