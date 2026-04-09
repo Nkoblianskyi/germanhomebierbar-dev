@@ -4,33 +4,28 @@ import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { SiteFooter } from '@/components/site-footer'
 
-function SearchParamsHandler({ ageVerified, mounted }: { ageVerified: boolean; mounted: boolean }) {
+function SearchParamsHandler() {
   const searchParams = useSearchParams()
 
   useEffect(() => {
-    if (ageVerified && mounted) {
-      const scrollTo = searchParams.get('scrollTo')
-      if (scrollTo) {
-        setTimeout(() => {
-          const element = document.getElementById(scrollTo)
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-          }
-        }, 100)
-      }
+    const scrollTo = searchParams.get('scrollTo')
+    if (scrollTo) {
+      setTimeout(() => {
+        const element = document.getElementById(scrollTo)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }, 100)
     }
-  }, [ageVerified, mounted, searchParams])
+  }, [searchParams])
 
   return null
 }
 
 export default function Home() {
-  const [ageVerified, setAgeVerified] = useState(false)
-  const [mounted, setMounted] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -38,63 +33,6 @@ export default function Home() {
     privacyAccepted: false
   })
   const [showSuccessModal, setShowSuccessModal] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-    const verified = sessionStorage.getItem('ageVerified')
-    if (verified === 'true') {
-      setAgeVerified(true)
-    }
-  }, [])
-
-  const handleAgeVerification = () => {
-    setAgeVerified(true)
-    sessionStorage.setItem('ageVerified', 'true')
-  }
-
-  if (!mounted) return null
-
-  if (!ageVerified) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-[#1a1410] relative overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/hero-bar.jpg"
-            alt="Deutsche Hausbar Hintergrund"
-            fill
-            className="object-cover opacity-30"
-            priority
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1a1410]/80 via-[#1a1410]/60 to-[#1a1410]/90" />
-        
-        <div className="relative z-10 max-w-lg w-full mx-4">
-          <div className="bg-[#2a2018]/95 backdrop-blur-sm border border-[#3d2f1f] p-12 text-center">
-            <div className="mb-8">
-              <span className="text-8xl font-serif text-[#c9a65c]">18+</span>
-            </div>
-            <h1 className="text-2xl font-serif text-[#e8dcc8] mb-6 tracking-wide">
-              Altersverifikation
-            </h1>
-            <p className="text-[#a89880] mb-8 leading-relaxed">
-              Diese Website enthalt Informationen uber alkoholische Getranke. 
-              Um fortzufahren, mussen Sie mindestens 18 Jahre alt sein.
-            </p>
-            <Button 
-              size="lg" 
-              className="w-full bg-[#8b5a2b] hover:bg-[#a0693c] text-[#f5efe6] border-0 py-6 text-lg font-medium tracking-wide"
-              onClick={handleAgeVerification}
-            >
-              Ich bin 18 Jahre oder alter
-            </Button>
-            <p className="text-xs text-[#6d5d4d] mt-6">
-              Mit dem Betreten bestatigen Sie, dass Sie das gesetzliche Mindestalter erreicht haben.
-            </p>
-          </div>
-        </div>
-      </div>
-    )
-  }
 
   const barStyles = [
     {
@@ -189,7 +127,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#f8f4ed]">
       <Suspense fallback={null}>
-        <SearchParamsHandler ageVerified={ageVerified} mounted={mounted} />
+        <SearchParamsHandler />
       </Suspense>
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-[#1a1410]/95 backdrop-blur-sm border-b border-[#3d2f1f]">
@@ -247,19 +185,26 @@ export default function Home() {
             Entdecken Sie die Kunst der deutschen Hausbar. 
             Von traditionellen Bierkellern bis zu modernen Designkonzepten.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Link
               href="#barstile"
               className="inline-block bg-[#8b5a2b] hover:bg-[#a0693c] text-[#f5efe6] px-8 py-4 text-sm tracking-wider transition-colors"
             >
               Barstile entdecken
             </Link>
-            <Link 
+            <Link
               href="/topics"
               className="inline-block border border-[#c9a65c] text-[#c9a65c] hover:bg-[#c9a65c]/10 px-8 py-4 text-sm tracking-wider transition-colors"
             >
               Einrichtungsratgeber
             </Link>
+          </div>
+
+          <div className="border border-[#3d2f1f] bg-[#1a1410]/60 backdrop-blur-sm px-8 py-4 inline-block">
+            <p className="text-[#6d5d4d] text-xs tracking-wide">
+              <span className="text-[#c9a65c] font-medium">18+ </span>
+              Diese Website enthalt Informationen uber alkoholische Getranke und richtet sich ausschliesslich an Personen ab 18 Jahren.
+            </p>
           </div>
         </div>
 
