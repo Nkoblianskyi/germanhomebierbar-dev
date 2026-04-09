@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
+import { SiteFooter } from '@/components/site-footer'
 
 export default function Home() {
   const searchParams = useSearchParams()
@@ -674,48 +675,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* Footer */}
-      <footer className="py-16 bg-[#12100c] border-t border-[#2a2018]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-12 mb-12">
-            <div>
-              <h3 className="text-[#c9a65c] font-serif text-xl mb-4">German Home Bier Bar</h3>
-              <p className="text-[#6d5d4d] text-sm leading-relaxed">
-                Informationsportal uber die Kunst der deutschen Hausbar-Gestaltung. 
-                Keine Verkaufsabsichten.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-[#a89880] text-sm tracking-wider uppercase mb-4">Navigation</h4>
-              <ul className="space-y-2">
-                <li><Link href="#barstile" className="text-[#6d5d4d] hover:text-[#c9a65c] text-sm transition-colors">Barstile</Link></li>
-                <li><Link href="#standorte" className="text-[#6d5d4d] hover:text-[#c9a65c] text-sm transition-colors">Standorte</Link></li>
-                <li><Link href="/topics" className="text-[#6d5d4d] hover:text-[#c9a65c] text-sm transition-colors">Ratgeber</Link></li>
-                <li><Link href="#kontakt" className="text-[#6d5d4d] hover:text-[#c9a65c] text-sm transition-colors">Kontakt</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-[#a89880] text-sm tracking-wider uppercase mb-4">Rechtliches</h4>
-              <ul className="space-y-2">
-                <li><Link href="/datenschutz" className="text-[#6d5d4d] hover:text-[#c9a65c] text-sm transition-colors">Datenschutz</Link></li>
-                <li><Link href="/cookies" className="text-[#6d5d4d] hover:text-[#c9a65c] text-sm transition-colors">Cookie-Richtlinie</Link></li>
-              </ul>
-              <p className="text-[#6d5d4d] text-sm leading-relaxed mt-4">
-                Diese Website richtet sich ausschliesslich an Personen ab 18 Jahren.
-              </p>
-            </div>
-          </div>
-          
-          <div className="pt-8 border-t border-[#2a2018] flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-[#4a4035] text-sm">
-              germanhomebierbar.com
-            </p>
-            <p className="text-[#4a4035] text-sm">
-              &copy; {new Date().getFullYear()} German Home Bier Bar. Alle Rechte vorbehalten.
-            </p>
-          </div>
-        </div>
-      </footer>
+<SiteFooter />
     </div>
   )
 }

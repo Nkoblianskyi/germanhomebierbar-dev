@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { SiteHeader } from '@/components/site-header'
+import { SiteFooter } from '@/components/site-footer'
 
 export default function TopicsPage() {
   const [activeSection, setActiveSection] = useState('beleuchtung')
@@ -27,33 +29,7 @@ export default function TopicsPage() {
 
   return (
     <div className="min-h-screen bg-[#f8f4ed]">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-[#1a1410]/95 backdrop-blur-sm border-b border-[#3d2f1f]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            <Link href="/" className="text-[#c9a65c] font-serif text-xl tracking-wider">
-              German Home Bier Bar
-            </Link>
-            <div className="hidden md:flex items-center gap-8">
-              <Link href="/#barstile" className="text-sm text-[#e8dcc8] hover:text-[#c9a65c] transition-colors tracking-wide">
-                Barstile
-              </Link>
-              <Link href="/#standorte" className="text-sm text-[#e8dcc8] hover:text-[#c9a65c] transition-colors tracking-wide">
-                Standorte
-              </Link>
-              <Link href="/#ueber-uns" className="text-sm text-[#e8dcc8] hover:text-[#c9a65c] transition-colors tracking-wide">
-                Uber uns
-              </Link>
-              <Link href="/topics" className="text-sm text-[#c9a65c] tracking-wide">
-                Ratgeber
-              </Link>
-              <Link href="/?scrollTo=kontakt" className="text-sm bg-[#8b5a2b] hover:bg-[#a0693c] text-[#f5efe6] px-5 py-2 transition-colors tracking-wide">
-                Kontakt
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <SiteHeader />
 
       {/* Hero */}
       <section className="pt-32 pb-20 bg-[#1a1410] relative overflow-hidden">
@@ -494,48 +470,7 @@ export default function TopicsPage() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="py-16 bg-[#12100c] border-t border-[#2a2018]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-12 mb-12">
-            <div>
-              <h3 className="text-[#c9a65c] font-serif text-xl mb-4">German Home Bier Bar</h3>
-              <p className="text-[#6d5d4d] text-sm leading-relaxed">
-                Informationsportal uber die Kunst der deutschen Hausbar-Gestaltung. 
-                Keine Verkaufsabsichten.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-[#a89880] text-sm tracking-wider uppercase mb-4">Navigation</h4>
-              <ul className="space-y-2">
-                <li><Link href="/#barstile" className="text-[#6d5d4d] hover:text-[#c9a65c] text-sm transition-colors">Barstile</Link></li>
-                <li><Link href="/#standorte" className="text-[#6d5d4d] hover:text-[#c9a65c] text-sm transition-colors">Standorte</Link></li>
-                <li><Link href="/topics" className="text-[#6d5d4d] hover:text-[#c9a65c] text-sm transition-colors">Ratgeber</Link></li>
-                <li><Link href="/?scrollTo=kontakt" className="text-[#6d5d4d] hover:text-[#c9a65c] text-sm transition-colors">Kontakt</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-[#a89880] text-sm tracking-wider uppercase mb-4">Rechtliches</h4>
-              <ul className="space-y-2">
-                <li><Link href="/datenschutz" className="text-[#6d5d4d] hover:text-[#c9a65c] text-sm transition-colors">Datenschutz</Link></li>
-                <li><Link href="/cookies" className="text-[#6d5d4d] hover:text-[#c9a65c] text-sm transition-colors">Cookie-Richtlinie</Link></li>
-              </ul>
-              <p className="text-[#6d5d4d] text-sm leading-relaxed mt-4">
-                Diese Website richtet sich ausschliesslich an Personen ab 18 Jahren.
-              </p>
-            </div>
-          </div>
-          
-          <div className="pt-8 border-t border-[#2a2018] flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-[#4a4035] text-sm">
-              germanhomebierbar.com
-            </p>
-            <p className="text-[#4a4035] text-sm">
-              &copy; {new Date().getFullYear()} German Home Bier Bar. Alle Rechte vorbehalten.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }

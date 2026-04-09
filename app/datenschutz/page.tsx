@@ -1,28 +1,11 @@
-"use client"
-
-import Link from "next/link"
+import { SiteHeader } from "@/components/site-header"
+import { SiteFooter } from "@/components/site-footer"
 
 export default function DatenschutzPage() {
   return (
     <div className="min-h-screen bg-[#1a1410] text-[#e8e0d4]">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-40 bg-[#1a1410]/95 backdrop-blur-sm border-b border-[#2a2018]">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="font-serif text-xl text-[#c9a65c]">
-            German Home Bier Bar
-          </Link>
-          <nav className="flex gap-8">
-            <Link href="/" className="text-sm text-[#a89880] hover:text-[#c9a65c] transition-colors">
-              Startseite
-            </Link>
-            <Link href="/topics" className="text-sm text-[#a89880] hover:text-[#c9a65c] transition-colors">
-              Ratgeber
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader />
 
-      {/* Content */}
       <main className="pt-32 pb-24 px-6">
         <div className="max-w-4xl mx-auto">
           <h1 className="font-serif text-4xl md:text-5xl text-[#f5efe6] mb-6">
@@ -33,7 +16,6 @@ export default function DatenschutzPage() {
           </p>
 
           <div className="space-y-12">
-            {/* Section 1 */}
             <section>
               <h2 className="font-serif text-2xl text-[#c9a65c] mb-4">
                 1. Datenschutz auf einen Blick
@@ -46,7 +28,6 @@ export default function DatenschutzPage() {
               </div>
             </section>
 
-            {/* Section 2 */}
             <section>
               <h2 className="font-serif text-2xl text-[#c9a65c] mb-4">
                 2. Datenerfassung auf dieser Website
@@ -73,7 +54,6 @@ export default function DatenschutzPage() {
               </div>
             </section>
 
-            {/* Section 3 */}
             <section>
               <h2 className="font-serif text-2xl text-[#c9a65c] mb-4">
                 3. Ihre Rechte
@@ -88,7 +68,6 @@ export default function DatenschutzPage() {
               </div>
             </section>
 
-            {/* Section 4 */}
             <section>
               <h2 className="font-serif text-2xl text-[#c9a65c] mb-4">
                 4. Analyse-Tools und Tools von Drittanbietern
@@ -100,7 +79,6 @@ export default function DatenschutzPage() {
               </div>
             </section>
 
-            {/* Section 5 */}
             <section>
               <h2 className="font-serif text-2xl text-[#c9a65c] mb-4">
                 5. Hosting
@@ -112,7 +90,6 @@ export default function DatenschutzPage() {
               </div>
             </section>
 
-            {/* Section 6 */}
             <section>
               <h2 className="font-serif text-2xl text-[#c9a65c] mb-4">
                 6. Kontaktformular
@@ -127,7 +104,6 @@ export default function DatenschutzPage() {
               </div>
             </section>
 
-            {/* Section 7 */}
             <section>
               <h2 className="font-serif text-2xl text-[#c9a65c] mb-4">
                 7. SSL- bzw. TLS-Verschlusselung
@@ -142,42 +118,7 @@ export default function DatenschutzPage() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="py-16 bg-[#12100c] border-t border-[#2a2018]">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-12 mb-12">
-            <div>
-              <h4 className="font-serif text-xl text-[#c9a65c] mb-4">German Home Bier Bar</h4>
-              <p className="text-[#6b6055] text-sm leading-relaxed">
-                Informationsportal uber die Kultur der deutschen Hausbar.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-serif text-lg text-[#c9a65c] mb-4">Navigation</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/" className="text-[#6b6055] hover:text-[#a89880] transition-colors">Startseite</Link></li>
-                <li><Link href="/topics" className="text-[#6b6055] hover:text-[#a89880] transition-colors">Ratgeber</Link></li>
-                <li><Link href="/?scrollTo=kontakt" className="text-[#6b6055] hover:text-[#a89880] transition-colors">Kontakt</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-serif text-lg text-[#c9a65c] mb-4">Rechtliches</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/datenschutz" className="text-[#6b6055] hover:text-[#a89880] transition-colors">Datenschutz</Link></li>
-                <li><Link href="/cookies" className="text-[#6b6055] hover:text-[#a89880] transition-colors">Cookie-Richtlinie</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="pt-8 border-t border-[#2a2018] flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-[#4a4035] text-sm">
-              germanhomebierbar.com
-            </p>
-            <p className="text-[#4a4035] text-sm">
-              &copy; {new Date().getFullYear()} German Home Bier Bar. Alle Rechte vorbehalten.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }
